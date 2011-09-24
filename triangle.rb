@@ -14,10 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  raise TriangleError, 'not triangle' if a <= 0 or b <= 0 or c <= 0
+  raise TriangleError, 'not triangle' if not (a + b > c and (a - b).abs < c )
+
   return :equilateral if a == b and b == c
-
   return :isosceles if [a, b, c].uniq.size == 2
-
   :scalene
 end
 
